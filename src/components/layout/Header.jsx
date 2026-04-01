@@ -15,11 +15,11 @@ export function Header() {
             onError={() => setImgError(true)}
           />
         ) : (
-          <div className="w-9 h-9 bg-gray-900 rounded-xl flex items-center justify-center text-white font-bold shadow-sm">
+          <div className="w-9 h-9 bg-brand-blue rounded-xl flex items-center justify-center text-white font-bold shadow-sm">
             {APP_NAME.charAt(0)}
           </div>
         )}
-        <h1 className="text-xl font-semibold tracking-tight text-gray-900">{APP_NAME}</h1>
+        <h1 className="text-xl font-semibold tracking-tight text-brand-blue">{APP_NAME}</h1>
       </div>
     </header>
   );

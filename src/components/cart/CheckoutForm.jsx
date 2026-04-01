@@ -29,7 +29,7 @@ export function CheckoutForm({ cart }) {
             <input
               type="text"
               required
-              className="block w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-black focus:bg-white focus:ring-1 focus:ring-black transition-colors text-sm"
+              className="block w-full pl-11 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-blue focus:bg-white focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
               placeholder="Tu nombre completo"
               value={name}
               onChange={(e) => setName(e.target.value)}

@@ -50,7 +50,7 @@ export function CartBar({ cart, totalItems }) {
                   placeholder="Tu nombre"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="block w-full pl-9 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-black focus:bg-white focus:ring-1 focus:ring-black transition-colors text-sm"
+                  className="block w-full pl-9 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-blue focus:bg-white focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
                 />
               </div>
               <button
@@ -68,7 +68,7 @@ export function CartBar({ cart, totalItems }) {
       {/* Sticky bottom bar */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full bg-gray-900 text-white flex items-center justify-between px-5 py-4 hover:bg-gray-800 transition-colors"
+        className="w-full bg-brand-blue text-white flex items-center justify-between px-5 py-4 hover:bg-brand-blue/90 transition-colors"
       >
         <div className="flex items-center gap-3 max-w-xl mx-auto w-full">
           <div className="bg-white/20 rounded-full p-1.5">

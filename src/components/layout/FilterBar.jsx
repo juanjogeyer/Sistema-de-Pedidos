@@ -15,7 +15,7 @@ export function FilterBar({ category, onCategoryChange, variant, onVariantChange
             onClick={() => onCategoryChange(cat.id)}
             className={`flex-shrink-0 px-4 py-1.5 rounded-full text-sm font-medium transition-colors ${
               category === cat.id
-                ? 'bg-gray-900 text-white'
+                ? 'bg-brand-blue text-white'
                 : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
             }`}
           >
@@ -33,7 +33,7 @@ export function FilterBar({ category, onCategoryChange, variant, onVariantChange
               onClick={() => onSubcategoryChange(sub.id)}
               className={`flex-shrink-0 px-3 py-1 rounded-full text-xs font-medium transition-colors ${
                 subcategory === sub.id
-                  ? 'bg-gray-700 text-white'
+                  ? 'bg-brand-red text-white'
                   : 'bg-white text-gray-500 border border-gray-200 hover:bg-gray-50'
               }`}
             >
@@ -52,7 +52,7 @@ export function FilterBar({ category, onCategoryChange, variant, onVariantChange
               onClick={() => onVariantChange(v)}
               className={`px-4 py-1 rounded-full text-xs font-medium transition-colors ${
                 variant === v
-                  ? 'bg-gray-900 text-white'
+                  ? 'bg-brand-blue text-white'
                   : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
               }`}
             >

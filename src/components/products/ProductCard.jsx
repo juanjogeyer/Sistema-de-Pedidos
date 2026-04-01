@@ -26,14 +26,14 @@ export function ProductCard({ product, quantity, onUpdate }) {
         <button
           {...minusProps}
           disabled={quantity === 0}
-          className="w-7 h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-700 hover:bg-gray-100 transition-colors disabled:opacity-30"
+          className="w-7 h-7 flex items-center justify-center rounded-full border border-gray-200 text-gray-700 hover:text-brand-red hover:border-brand-red transition-colors disabled:opacity-30"
         >
           <Minus size={12} />
         </button>
         <span className="text-sm font-medium w-5 text-center">{quantity}</span>
         <button
           {...plusProps}
-          className="w-7 h-7 flex items-center justify-center bg-gray-900 rounded-full text-white hover:bg-gray-700 transition-colors"
+          className="w-7 h-7 flex items-center justify-center bg-brand-blue rounded-full text-white hover:bg-brand-blue/90 transition-colors"
         >
           <Plus size={12} />
         </button>
