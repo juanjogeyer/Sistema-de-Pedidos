@@ -9,14 +9,15 @@ import { CartBar } from './components/cart/CartBar';
 
 export default function App() {
   const { cart, totalItems, getQuantity, updateQuantity } = useCart();
-  const { category, setCategory, variant, setVariant, subcategory, setSubcategory, filteredProducts } = useFilter();
+  const { category, setCategory, variant, setVariant, filteredProducts } = useFilter();
 
   const visible = filteredProducts(products);
 
   // Determinar variantes disponibles y autoseleccionar si la actual no es válida
-  const categoryProducts = products.filter(p => p.category === category && (subcategory === 'all' || p.subcategory === subcategory));
+  const categoryProducts = products.filter(p => p.category === category);
   const availableVariantsSet = new Set(categoryProducts.map(p => p.variant));
   const availableVariants = [];
+  
   if (availableVariantsSet.has('unidad')) availableVariants.push('unidad');
   if (availableVariantsSet.has('bulto')) availableVariants.push('bulto');
   if (availableVariantsSet.has('granel')) availableVariants.push('granel');
@@ -35,8 +36,6 @@ export default function App() {
         onCategoryChange={setCategory}
         variant={variant}
         onVariantChange={setVariant}
-        subcategory={subcategory}
-        onSubcategoryChange={setSubcategory}
         availableVariants={availableVariants}
       />
 
@@ -55,4 +54,4 @@ export default function App() {
       <CartBar cart={cart} totalItems={totalItems} />
     </div>
   );
-}
+}
