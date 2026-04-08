@@ -5,9 +5,8 @@
  * @param {string} phone - Número de teléfono destino (sin '+')
  * @returns {string} URL lista para abrir en WhatsApp
  */
-export function buildWhatsAppUrl(cart, customerName, phone) {
+export function buildWhatsAppUrl(cart, phone) {
   let message = `*NUEVO PEDIDO* 🛒\n\n`;
-  message += `*Cliente:* ${customerName}\n\n`;
   message += `*Detalle del Pedido:*\n`;
 
   cart.forEach((item) => {

@@ -1,18 +1,15 @@
 import { useState } from 'react';
-import { ShoppingCart, Send, User, X } from 'lucide-react';
+import { ShoppingCart, Send, X } from 'lucide-react';
 import { buildWhatsAppUrl } from '../../utils/whatsapp';
 import { COMPANY_PHONE } from '../../config/app';
 
 export function CartBar({ cart, totalItems }) {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState('');
 
   if (totalItems === 0) return null;
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (!name.trim()) return;
-    const url = buildWhatsAppUrl(cart, name, COMPANY_PHONE);
+  const handleSubmit = () => {
+    const url = buildWhatsAppUrl(cart, COMPANY_PHONE);
     window.open(url, '_blank');
   };
 
@@ -38,29 +35,13 @@ export function CartBar({ cart, totalItems }) {
               ))}
             </div>
 
-            <form onSubmit={handleSubmit} className="flex gap-2">
-              <div className="relative flex-1">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400">
-                  <User size={16} />
-                </div>
-                <input
-                  type="text"
-                  required
-                  autoFocus
-                  placeholder="Tu nombre"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="block w-full pl-9 pr-3 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:border-brand-blue focus:bg-white focus:ring-1 focus:ring-brand-blue transition-colors text-sm"
-                />
-              </div>
-              <button
-                type="submit"
-                className="bg-accent-green text-white font-medium px-5 rounded-xl hover:bg-accent-hover transition-colors flex items-center gap-2 shadow-lg shadow-accent-green/20 flex-shrink-0"
-              >
-                <Send size={16} fill="currentColor" />
-                Enviar
-              </button>
-            </form>
+            <button
+              onClick={handleSubmit}
+              className="w-full bg-accent-green text-white font-semibold py-4 rounded-xl hover:bg-accent-hover active:scale-95 transition-all flex justify-center items-center gap-2 shadow-lg shadow-accent-green/30 text-base"
+            >
+              <Send size={18} fill="currentColor" />
+              Enviar pedido por WhatsApp
+            </button>
           </div>
         </div>
       )}
@@ -68,14 +49,14 @@ export function CartBar({ cart, totalItems }) {
       {/* Sticky bottom bar */}
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full bg-brand-blue text-white flex items-center justify-between px-5 py-4 hover:bg-brand-blue/90 transition-colors"
+        className="w-full bg-accent-green text-white flex items-center justify-between px-5 py-4 hover:bg-accent-hover active:scale-[0.99] transition-all shadow-lg"
       >
         <div className="flex items-center gap-3 max-w-xl mx-auto w-full">
           <div className="bg-white/20 rounded-full p-1.5">
             <ShoppingCart size={18} />
           </div>
-          <span className="font-medium">{totalItems} {totalItems === 1 ? 'ítem' : 'ítems'}</span>
-          <span className="ml-auto text-sm text-gray-300">
+          <span className="font-semibold">{totalItems} {totalItems === 1 ? 'ítem' : 'ítems'}</span>
+          <span className="ml-auto font-medium text-white/90">
             {open ? 'Cerrar ↓' : 'Confirmar pedido →'}
           </span>
         </div>
